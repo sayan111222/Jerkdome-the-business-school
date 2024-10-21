@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar Styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background-color: rgba(  0.8); /* Semi-transparent */
+  padding: 0 2rem;
+  position: fixed; /* Make the navbar fixed */
+  top: 0; /* Align it at the top */
+  left: 0; /* Align it to the left edge */
+  width: 100%; /* Make it span across the page */
+  z-index: 1000; /* Ensure it stays above other elements */
+ 
+}
+
+.logo {
+  font-size: 2rem;
+  color: #fca311;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  gap: 23px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color:  #fca311;
+  font-size: 1.1rem;
+}
+
+.nav-links li a:hover {
+  color: rgb(194, 171, 109);
+  font-size: 1.04rem;
+}
+
+/* Hamburger menu (for mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .firstsection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rightsection img {
+    width: 100px;
+  }
+
+  nav {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0px;
+    left: -100%;  /* Initially hidden */
+    flex-direction: column;
+    background-color: #000000; /* Semi-transparent */
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+
+  }
+
+  .nav-links.open {
+    left: 0;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+   
+    
+   
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+
+/* Full Section Styles */
+.firstsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  background-image: url('a-modern-sleek-building-with-a-neon-sign-saying-je-kjpnyNRlQfGYCPKGg_F1yg-WzxaEoZNQoWZOwEQhF9VGA.jpeg'); /* Add your image path here */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.8); /* Add bottom shadow */
+}
+.firstsection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.8); /* Shadow effect */
+  z-index: 1;
+}
+
+/* Dark Overlay Using Pseudo-Element */
+.firstsection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Adjust opacity for darkness */
+  z-index: 1;
+}
+
+/* Content Styling */
+.leftsection {
+  position: relative;
+  text-align: center;
+  z-index: 2; /* Ensure it's above the overlay */
+  color: white;
+  margin-bottom: 200px;
+}
+
+.firstsection h1 {
+  font-size: 2rem;
+  padding: 0 30px;
+  color: #fca311;
+}
+.firstsection p{
+  margin: 0 10px;
+}
+button {
+  padding: 10px 30px;
+  margin: 10px 0;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color:#ff9d00;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  font-weight: bold;
+  &:active{
+transform: scale(1.1);
+  }
+}
+
+button:hover {
+
+  background-color:#d18100;
+}
+
+
+
+
+main hr {
+  border: 0;
+  background: rgb(132, 132, 199);
+  height: 1px;
+  margin: 4px 18px;
+}
+/* Section Styles */
+.business-projects {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 50px;
+  background-color: #000000;
+}
+
+/* Project Card Styles */
+.project-card {
+  position: relative;
+  background-color: white;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  height: 350px; /* Set height for consistent layout */
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Image Styling */
+.project-card img {
+  width: 100%;
+  height: 70%; /* Adjust height of the image inside the card */
+  object-fit: cover; /* Ensure the image covers the div without distortion */
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.project-card:hover img {
+  filter: grayscale(100%);
+  transform: scale(1.1);
+}
+
+/* Title and Description */
+.project-card h3 {
+  text-align: center;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.project-card p {
+  text-align: center;
+  color: #555;
+  padding: 0 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .business-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .business-projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.secondsection {
+  max-width: 80vw;
+  margin: auto;
+  height: 90vh;
+}
+
+.secondsection h1 {
+  font-size: 1.9rem;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.secondsection p {
+  color: #919191;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+
+/* Footer Styles */
+.footer {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 40px;
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.5); /* Drop shadow at the top */
+}
+
+/* Container for footer sections */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+  justify-content: space-between;
+}
+
+/* Footer Section */
+.footer-section {
+  flex: 1; /* Allow sections to grow */
+  margin: 20px;
+  min-width: 199px; /* Minimum width for each section */
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Services List */
+.footer-section ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+ 
+}
+
+.social-icons a i{
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+  font-size: 20px;
+  color: rgb(255, 34, 34);
+  
+  
+}
+
+.social-icons a:hover i{
+  transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  border-top: 1px solid #555;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    align-items: center; /* Center align the sections */
+  }
+
+  .footer-section {
+    text-align: center; /* Center text in sections */
+    margin: 10px 0; /* Reduce margin */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px; /* Reduce padding on very small screens */
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem; /* Smaller font for headings */
+  }
+}
+
+
+/* Services Section */
+.services {
+  padding: 40px;
+  background-color: #000000; /* Light background for contrast */
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4d4d4d; /* Dark text color */
+}
+
+/* Services Container */
+.services-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allow items to wrap */
+}
+
+/* Service Item */
+.service-item {
+  background: white; /* White background for each service */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  margin: 15px;
+  padding: 20px;
+  width: 250px; /* Fixed width for consistency */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+}
+
+.service-item img {
+  width: 60px; /* Set a fixed width for the icons */
+  height: 60px; /* Set a fixed height for the icons */
+  margin-bottom: 10px;
+}
+
+.service-item h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #333; /* Dark text color for headings */
+}
+
+.service-item p {
+  color: #666; /* Gray text for descriptions */
+}
+
+/* Hover Effect */
+.service-item:hover {
+  transform: translateY(-5px); /* Move item up slightly */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-container {
+    justify-content: center; /* Center items on smaller screens */
+  }
+
+  .service-item {
+    margin: 10px; /* Reduce margin on smaller screens */
+    width: 90%; /* Make items take full width */
+  }
+}
